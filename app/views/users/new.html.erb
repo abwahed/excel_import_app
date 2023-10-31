@@ -1,0 +1,13 @@
+<h1>Upload an Excel Sheet</h1>
+<%= form_with url: users_path, local: false, data: {type: 'script'}, html: { class: 'file-upload-form', data: { controller: 'file-upload' } } do |form| %>
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.file_field :file, data: { action: 'change->file-upload#submitForm' }, name: 'user[file]', accept: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' %>
+  </div>
+<% end %>
+<div>
+  <div id="total-data"></div>
+  <div id="success-data"></div>
+  <div id="failure-data"></div>
+  <div id="failure-reasons"></div>
+</div>
